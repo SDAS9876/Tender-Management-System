@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Products {}
 
@@ -8,9 +8,20 @@ export interface Products {}
   providedIn: 'root',
 })
 export class AuthService {
+
+  isLoggedIn = new BehaviorSubject<any>(null);
+
+  isAdmin = new BehaviorSubject<any>(null);
+
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<any> {
-    return this.http.get('https://fakestoreapi.com/products/1');
+  register(body: any){
+    return this.http.post("http://localhost:8080/user/register", body)
   }
+
+  signIn(){
+    this.isLoggedIn.next(true);
+    this.isAdmin.next(true);
+  }
+
 }

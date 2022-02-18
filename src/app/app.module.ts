@@ -12,16 +12,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateComponent } from './components/tender/create/create.component';
 import { ListTenderComponent } from './components/tender/list-tender/list-tender.component';
 import { UpdateTenderComponent } from './components/tender/update-tender/update-tender.component';
+import { FeedbackformComponent } from './components/feedbackform/feedbackform.component';
+import { ContractorComponent } from './components/contractor/contractor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FeedbackformComponent,
+    ContractorComponent,
     SignUpComponent,
     SignInComponent,
     NavbarComponent,
     CreateComponent,
     ListTenderComponent,
     UpdateTenderComponent,
+    ContractorComponent,
   ],
   imports: [
     BrowserModule,

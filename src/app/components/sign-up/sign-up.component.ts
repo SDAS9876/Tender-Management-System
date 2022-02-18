@@ -47,7 +47,7 @@ export class SignUpComponent implements OnInit {
     if (this.registerForm.invalid) return;
 
     console.log(this.registerForm.value);
-    this.authService.getProducts().subscribe({
+    this.authService.register({...this.registerForm.value, userId: parseInt((Math.random()*1000%1000).toString())}).subscribe({
       next: (value) => {
         console.log(value);
       },

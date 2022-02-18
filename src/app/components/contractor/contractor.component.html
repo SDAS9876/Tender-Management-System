@@ -1,0 +1,27 @@
+<form [formGroup]="searchForm" (ngSubmit)="toSearch($event)" >
+    <div class="form-group">
+      <select class="form-control" formControlName="term">
+        <option value="all">All</option>
+        <option value="PWD Contractor">PWD Contractor</option>
+        <option value="Canteen Contractor">Canteen Contractor</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+  </form>
+  <div *ngIf="filteredContractors" >
+      <div>
+          <ul>
+              <li *ngFor="let contractor of filteredContractors; let idx = index" (click)="getContractorDetails(idx)">
+                  {{ contractor.firstName + " " + contractor.lastName }}
+              </li>
+          </ul>
+      </div>
+      <div *ngIf="selectedContractor">
+          <h1>Contractor Details</h1>
+          <h3>{{ selectedContractor.firstName + " " + selectedContractor.lastName }}</h3>
+          <p>contractor id: {{ selectedContractor.userId }}</p>
+          <p>contractor type: {{ selectedContractor.category }}</p>
+          <p>contractor number: {{ selectedContractor.contactNumber }}</p>
+          <p>contractor gender: {{ selectedContractor.gender }}</p>
+      </div>
+  </div>

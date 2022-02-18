@@ -14,12 +14,28 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" *ngIf="!isLoggedIn">
           <li class="nav-item">
             <a class="nav-link" routerLink="/signin">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/signup">Register</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav" *ngIf="isLoggedIn && !isAdmin">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/list-tenders">Tender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/feedbackform">FeedBack</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav" *ngIf="isLoggedIn && isAdmin">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/list-tenders">View Tenders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/create-tender">Create Tender</a>
           </li>
         </ul>
       </div>
