@@ -1,0 +1,33 @@
+<table class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container Column="TenderId">
+      <th> Tender Id </th>
+      <td> {{TenderId}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container Column="TenderType">
+      <th> Tender Type </th>
+      <td> {{TenderType}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="TenderDate">
+      <th> Tender Date </th>
+      <td> {{TenderDate}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="MinQuotes">
+      <th> Minimum Quotes </th>
+      <td> {{MinQuotes}} </td>
+    </ng-container>
+  
+    <tr></tr>
+    <tr></tr>
+  </table>
+  

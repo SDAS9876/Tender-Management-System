@@ -1,0 +1,32 @@
+<h1 class="mb-5 text-center">Create new Tender</h1>
+
+<form [formGroup]="tenderForm" (ngSubmit)="onSubmit($event)">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control d-none"
+      placeholder="id"
+      formControlName="id"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="type"
+      formControlName="type"
+    />
+  </div>
+  <div class="form-group">
+    <input type="date" class="form-control" formControlName="date" />
+  </div>
+  <div class="form-group">
+    <input
+      type="number"
+      class="form-control"
+      placeholder="min"
+      formControlName="min"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>

@@ -1,0 +1,24 @@
+<h1 class="text-center mb-5">Tender Details</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>TYPE</th>
+      <th>DATE</th>
+      <th>MIN</th>
+      <th>ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tender of tenders">
+      <td>{{ tender.id }}</td>
+      <td>{{ tender.type }}</td>
+      <td>{{ tender.date }}</td>
+      <td>{{ tender.min }}</td>
+      <td>
+        <button (click)="onDeleteClick(tender.id)">Delete</button>
+        <button (click)="onUpdateClick(tender.id)">Update</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,166 @@
+<h1>Register</h1>
+<form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit($event)">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      formControlName="firstName"
+    />
+
+    <div
+      *ngIf="getErrors(this.registerForm.get('firstName'))"
+      class="alert alert-danger mt-2"
+    >
+      <small *ngIf="this.registerForm.get('firstName')?.getError('required')">
+        Firstname is required
+      </small>
+      <small *ngIf="this.registerForm.get('firstName')?.getError('minlength')">
+        It should be >=3
+      </small>
+      <small *ngIf="this.registerForm.get('firstName')?.getError('maxlength')">
+        It should be <=15
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      formControlName="lastName"
+    />
+
+    <div
+      *ngIf="getErrors(this.registerForm.get('lastName'))"
+      class="alert alert-danger mt-2"
+    >
+      <small *ngIf="this.registerForm.get('lastName')?.getError('required')">
+        Lastname is required
+      </small>
+      <small *ngIf="this.registerForm.get('lastName')?.getError('minlength')">
+        It should be >=3
+      </small>
+      <small *ngIf="this.registerForm.get('lastName')?.getError('maxlength')">
+        It should be <=15
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="dob">DOB</label>
+    <input type="date" class="form-control" id="dob" formControlName="dob" />
+    <!-- ageLessThan18 -->
+    <div
+      *ngIf="getErrors(this.registerForm.get('dob'))"
+      class="alert alert-danger mt-2"
+    >
+      <small *ngIf="this.registerForm.get('dob')?.getError('required')">
+        DOB is required
+      </small>
+      <small *ngIf="this.registerForm.get('dob')?.getError('ageLessThan18')">
+        You should be 18 or older
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Gender</label>
+
+    <div class="d-flex">
+      <div>
+        <input type="radio" id="male" formControlName="gender" value="male" />
+        <label for="male" class="ml-2">Male</label>
+      </div>
+
+      <div class="ml-5">
+        <input
+          type="radio"
+          id="female"
+          formControlName="gender"
+          value="female"
+        />
+        <label for="female" class="ml-2">Female</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contactNumber">Contact Number</label>
+    <input
+      type="tel"
+      class="form-control"
+      id="contactNumber"
+      formControlName="contactNumber"
+    />
+
+    <div
+      *ngIf="getErrors(this.registerForm.get('contactNumber'))"
+      class="alert alert-danger mt-2"
+    >
+      <small
+        *ngIf="this.registerForm.get('contactNumber')?.getError('required')"
+      >
+        Contact number is required
+      </small>
+      <small
+        *ngIf="this.registerForm.get('contactNumber')?.getError('pattern')"
+      >
+        Only digits are accepted
+      </small>
+      <small
+        *ngIf="this.registerForm.get('contactNumber')?.getError('minlength')"
+      >
+        It should be 10 digit
+      </small>
+      <small
+        *ngIf="this.registerForm.get('contactNumber')?.getError('maxlength')"
+      >
+        It should be 10 digit
+      </small>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="catagory">Catagory</label>
+    <select class="form-control" id="category" formControlName="category">
+      <option value="PWD Contractor">PWD Contractor</option>
+      <option value="Canteen Contractor">Canteen Contractor</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+    />
+
+    <div
+      *ngIf="getErrors(this.registerForm.get('password'))"
+      class="alert alert-danger mt-2"
+    >
+      <small *ngIf="this.registerForm.get('password')?.getError('required')">
+        Password is required
+      </small>
+      <small *ngIf="this.registerForm.get('password')?.getError('pattern')">
+        Password is required
+      </small>
+      <small *ngIf="this.registerForm.get('password')?.getError('minlength')">
+        It should be >= 6 character
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="this.registerForm.invalid"
+  >
+    Submit
+  </button>
+</form>
